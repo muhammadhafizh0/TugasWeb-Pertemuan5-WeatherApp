@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="top">
+      <div class="eyebrow">Tugas Rutin 5 · Pemrograman Web</div>
+      <h1>🌤️ Weather App</h1>
+    </header>
+
+    <div class="keybar">
+      <input type="password" id="apiKeyInput" placeholder="OpenWeatherMap API key kamu...">
+    </div>
+    <details class="keyhelp">
+      <summary>Belum punya API key?</summary>
+      <p>Daftar gratis di <a href="https://openweathermap.org/api" target="_blank" rel="noopener">openweathermap.org/api</a>,
+      ambil API key dari dashboard, lalu tempel di kolom di atas. Key disimpan hanya di browser kamu (localStorage).</p>
+    </details>
+
+    <!-- Search Form -->
+    <form id="searchForm">
+      <input type="text" id="cityInput" placeholder="Masukkan nama kota..." autocomplete="off">
+      <button type="submit">Cari</button>
+    </form>
+
+    <!-- Riwayat pencarian -->
+    <div id="historyBar" class="history"></div>
+
+    <!-- Loading State -->
+    <div id="loading" class="hidden">
+      <div class="spinner"></div> Memuat data cuaca...
+    </div>
+
+    <!-- Error Message -->
+    <div id="error" class="hidden"></div>
+
+    <!-- Weather Result -->
+    <div id="weatherResult" class="card hidden">
+      <div class="card-top">
+        <div>
+          <p id="cityName"></p>
+          <p id="cityMeta"></p>
+        </div>
+        <div class="unit-toggle">
+          <button type="button" id="unitC" class="active">°C</button>
+          <button type="button" id="unitF">°F</button>
+        </div>
+      </div>
+      <div class="temp-row">
+        <img id="weatherIcon" alt="ikon cuaca">
+        <p id="temperature"></p>
+      </div>
+      <p id="description"></p>
+      <div class="stats">
+        <div class="stat"><div class="label">Kelembaban</div><div class="value" id="humidity"></div></div>
+        <div class="stat"><div class="label">Angin</div><div class="value" id="wind"></div></div>
+      </div>
+    </div>
+
+    <footer>Data cuaca dari OpenWeatherMap · Riwayat pencarian tersimpan lokal di browser ini</footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

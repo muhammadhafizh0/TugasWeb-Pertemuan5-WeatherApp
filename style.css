@@ -1,0 +1,125 @@
+:root{
+  --sky-top:#1b2a4a;
+  --sky-bottom:#3d5a80;
+  --panel:#0f1c33;
+  --panel-line:rgba(255,255,255,0.12);
+  --ink:#eef2f8;
+  --ink-dim:#9fb0c9;
+  --sun:#f6b352;
+  --bad:#e8756a;
+}
+*{box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  margin:0;
+  min-height:100%;
+  background:linear-gradient(180deg,var(--sky-top) 0%,var(--sky-bottom) 100%);
+  font-family:'Inter',ui-sans-serif,system-ui,sans-serif;
+  color:var(--ink);
+  display:flex;
+  justify-content:center;
+  padding:40px 18px;
+}
+h1,#cityName,#temperature{font-family:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;}
+
+.wrap{width:100%;max-width:480px;}
+
+header.top{margin-bottom:22px;}
+.eyebrow{font-size:.78rem;color:var(--ink-dim);letter-spacing:.02em;}
+h1{font-weight:700;font-size:1.7rem;margin:.15em 0 0;}
+
+.keybar{display:flex;gap:8px;margin-bottom:18px;}
+.keybar input{
+  flex:1;min-width:0;
+  background:rgba(255,255,255,.05);
+  border:1px solid var(--panel-line);
+  color:var(--ink-dim);
+  border-radius:10px;padding:10px 12px;font-size:.82rem;
+  font-family:inherit;
+}
+.keybar input:focus{outline:2px solid var(--sun);outline-offset:1px;color:var(--ink);}
+
+details.keyhelp{margin-bottom:18px;}
+details.keyhelp summary{color:var(--ink-dim);font-size:.78rem;cursor:pointer;}
+details.keyhelp p{color:var(--ink-dim);font-size:.8rem;line-height:1.5;}
+details.keyhelp a{color:var(--sun);}
+
+form#searchForm{display:flex;gap:8px;margin-bottom:14px;}
+#cityInput{
+  flex:1;min-width:0;padding:13px 14px;border-radius:12px;
+  border:1px solid var(--panel-line);background:rgba(255,255,255,.06);
+  color:var(--ink);font-size:1rem;font-family:inherit;
+}
+#cityInput::placeholder{color:var(--ink-dim);}
+#cityInput:focus{outline:2px solid var(--sun);outline-offset:1px;}
+
+button{font-family:inherit;cursor:pointer;}
+#searchForm button{
+  padding:13px 20px;border-radius:12px;border:none;
+  background:var(--sun);color:#1b2a4a;font-weight:600;font-size:.95rem;
+}
+#searchForm button:active{transform:translateY(1px);}
+
+.history{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+.chip{
+  background:rgba(255,255,255,.06);border:1px solid var(--panel-line);
+  color:var(--ink-dim);padding:6px 12px;border-radius:999px;font-size:.78rem;
+}
+.chip:hover{color:var(--ink);border-color:var(--sun);}
+
+#loading{
+  display:flex;align-items:center;gap:10px;color:var(--ink-dim);
+  padding:18px 4px;font-size:.9rem;
+}
+.spinner{
+  width:16px;height:16px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.2);border-top-color:var(--sun);
+  animation:spin .8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+#error{
+  background:rgba(232,117,106,.12);border:1px solid rgba(232,117,106,.4);
+  color:#f4b3ac;padding:14px 16px;border-radius:12px;font-size:.88rem;
+  margin-bottom:10px;line-height:1.5;
+}
+
+.card{
+  background:var(--panel);border:1px solid var(--panel-line);
+  border-radius:20px;padding:26px 24px 22px;
+}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;}
+#cityName{font-size:1.3rem;font-weight:600;margin:0;}
+#cityMeta{color:var(--ink-dim);font-size:.78rem;margin:2px 0 0;}
+
+.unit-toggle{
+  display:flex;background:rgba(255,255,255,.06);border-radius:10px;
+  padding:2px;border:1px solid var(--panel-line);
+}
+.unit-toggle button{
+  background:none;border:none;color:var(--ink-dim);font-size:.78rem;
+  padding:5px 10px;border-radius:8px;font-weight:600;
+}
+.unit-toggle button.active{background:var(--sun);color:#1b2a4a;}
+
+.temp-row{display:flex;align-items:center;gap:14px;margin:14px 0 6px;}
+#weatherIcon{width:74px;height:74px;flex-shrink:0;}
+#temperature{font-size:3.1rem;font-weight:700;line-height:1;margin:0;}
+#description{color:var(--ink-dim);font-size:.95rem;text-transform:capitalize;margin:0 0 18px;}
+
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.stat{
+  background:rgba(255,255,255,.04);border:1px solid var(--panel-line);
+  border-radius:12px;padding:12px 14px;
+}
+.stat .label{color:var(--ink-dim);font-size:.72rem;}
+.stat .value{font-size:1.15rem;font-weight:600;margin-top:2px;}
+
+.hidden{display:none !important;}
+
+footer{margin-top:26px;color:var(--ink-dim);font-size:.72rem;text-align:center;}
+
+@media(max-width:380px){
+  #temperature{font-size:2.5rem;}
+  #weatherIcon{width:58px;height:58px;}
+}
